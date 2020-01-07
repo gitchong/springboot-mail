@@ -35,17 +35,6 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
 
-# xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
-mybatis-plus:
-  mapper-locations: classpath*:mapper/**/*Mapper.xml
-  global-config:
-    # db-config:
-    #id-type: auto #主键类型 AUTO:"数据库ID自增" INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
-    #    field-strategy: NOT_EMPTY #字段策略 IGNORED:"忽略判断" NOT_NULL:"非 NULL 判断") NOT_EMPTY:"非空判断"
-    db-type: MYSQL
-configuration:
-  map-underscore-to-camel-case: true # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
-
   rabbitmq:
     host: 127.0.0.1
     port: 5672
@@ -67,10 +56,17 @@ configuration:
     publisher-confirm-type: simple
   mvc:
     static-path-pattern: /static/**
-  #  resources:
-  #    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
-  #  thymeleaf:
-  #    prefix: classpath:/templates/
+
+# xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    # db-config:
+    #id-type: auto #主键类型 AUTO:"数据库ID自增" INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+    #    field-strategy: NOT_EMPTY #字段策略 IGNORED:"忽略判断" NOT_NULL:"非 NULL 判断") NOT_EMPTY:"非空判断"
+    db-type: MYSQL
+configuration:
+  map-underscore-to-camel-case: true # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
 
   #QQ邮箱设置
 #  mail:
